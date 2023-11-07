@@ -1,5 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        SigmaNotation sigmaNotation = new SigmaNotation();
+        System.out.println("Sigma is " + sigmaNotation.calculateSigmaFromExpression(1, 3));
+        double[] x = new double[] {1, 2, 3};
+        System.out.println("Standard deviation is " + sigmaNotation.standardDeviation(x));
     }
 }
