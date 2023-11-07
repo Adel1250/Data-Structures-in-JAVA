@@ -1,5 +1,5 @@
 public class SigmaNotation {
-    public int calculateSigmaFromExpression(int from, int to) {
+    public int calculateSigmaForExpression(int from, int to) {
         int sigma = 0;
         for (int i = from; i <= to; i++) {
             sigma += 2 * i - 1;
