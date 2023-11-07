@@ -1,7 +1,6 @@
 public class LinkedList {
     private Node head = null;
     private Node tail = null;
-    private int length = 0;
 
     public void insert(int data) {
         Node newNode = new Node();
@@ -12,7 +11,6 @@ public class LinkedList {
         newNode.setData(data);
         this.tail.setNext(newNode);
         this.tail = newNode;
-        this.length++;
     }
 
     public void printLinkedList() {
