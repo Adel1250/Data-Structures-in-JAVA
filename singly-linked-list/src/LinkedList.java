@@ -1,20 +1,19 @@
-public class LinkedList {
-    private Node head = null;
-    private Node tail = null;
+public class LinkedList<T> {
+    private Node<T> head = null;
+    private Node<T> tail = null;
 
-    public void insert(int data) {
-        Node newNode = new Node();
+    public void insert(T data) {
+        Node<T> newNode = new Node<>(data);
         if (this.head == null) {
             this.head = newNode;
-            this.tail = newNode;
+        } else {
+            this.tail.setNext(newNode);
         }
-        newNode.setData(data);
-        this.tail.setNext(newNode);
         this.tail = newNode;
     }
 
     public void printLinkedList() {
-        Node temp = this.head;
+        Node<T> temp = this.head;
         while (temp != null) {
             System.out.println(temp.getData());
             temp = temp.getNext();
