@@ -1,8 +1,8 @@
-public class Node<T> {
+public class LinkedListNode<T> {
     private final T data;
-    private Node<T> next;
+    private LinkedListNode<T> next;
 
-    public Node(T data) {
+    public LinkedListNode(T data) {
         this.data = data;
         this.next = null;
     }
@@ -11,11 +11,11 @@ public class Node<T> {
         return data;
     }
 
-    public Node<T> getNext() {
+    public LinkedListNode<T> getNext() {
         return next;
     }
 
-    public void setNext(Node<T> next) {
+    public void setNext(LinkedListNode<T> next) {
         this.next = next;
     }
 }
