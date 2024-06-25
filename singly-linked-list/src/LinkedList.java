@@ -82,23 +82,24 @@ public class LinkedList<T> {
         validateIndex(index);
 
         LinkedListNode<T> temp = this.head;
-        if (index == 0 && this.linkedListLength == 1) {
-            this.head = null;
-            this.tail = null;
-        } else if (index == 0 && this.linkedListLength > 1) {
+
+        if (index == 0) {
             this.head = this.head.getNext();
-        } else if (index == this.linkedListLength - 1 && this.linkedListLength > 1) {
-            for (int i = 0; i < index - 1; i++) {
-                temp = temp.getNext();
+            if (this.head == null) { // List became empty
+                this.tail = null;
             }
-            this.tail = temp;
-            this.tail.setNext(null);
         } else {
             for (int i = 0; i < index - 1; i++) {
                 temp = temp.getNext();
             }
+
+            if (temp.getNext() == this.tail) {
+                this.tail = temp;
+            }
+
             temp.setNext(temp.getNext().getNext());
         }
+
         this.linkedListLength--;
     }
 
@@ -121,8 +122,8 @@ public class LinkedList<T> {
     }
 
     private void validateIndex(int index) {
-        if (index >= this.linkedListLength) {
-            throw new IndexOutOfBoundsException("Index out of bounds.");
+        if (index < 0 || index >= this.linkedListLength) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
         }
     }
 }
