@@ -28,12 +28,10 @@ public class LinkedList<T> {
     }
 
     public void insertAfter(int index, T data) {
-        validateLinkedList();
         insert(index, data);
     }
 
     public void insertBefore(int index, T data) {
-        validateLinkedList();
         insert(index - 1, data);
     }
 
@@ -104,6 +102,7 @@ public class LinkedList<T> {
     }
 
     private void insert(int index, T data) {
+        validateLinkedList();
         validateIndex(index);
         LinkedListNode<T> newLinkedListNode = new LinkedListNode<>(data);
         LinkedListNode<T> temp = this.head;
