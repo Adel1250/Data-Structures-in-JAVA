@@ -79,12 +79,32 @@ public class DoubleLinkedList<T> {
             this.head = this.head.getNext();
             if (this.head == null) {
                 this.tail = null;
-            }  else {
+            } else {
                 this.head.setPrev(null);
             }
-
-            this.doublyLinkedListLength--;
+        } else {
+            for (int i = 0; i < index - 1; i++) {
+                if (temp == null || temp.getNext() == null) {
+                    throw new IndexOutOfBoundsException("Index " + index + " is out of bounds.");
+                }
+                temp = temp.getNext();
+            }
+            if (temp.getNext() == this.tail) {
+                this.tail = temp;
+                temp.setNext(null);
+            } else {
+                DoublyLinkedListNode<T> nodeToDelete = temp.getNext();
+                if (nodeToDelete == null) {
+                    throw new IndexOutOfBoundsException("Index out of bounds.");
+                }
+                DoublyLinkedListNode<T> tempNext = nodeToDelete.getNext();
+                temp.setNext(tempNext);
+                if (tempNext != null) {
+                    tempNext.setPrev(temp);
+                }
+            }
         }
+        this.doublyLinkedListLength--;
     }
 
     public void printLinkedListReverse() {

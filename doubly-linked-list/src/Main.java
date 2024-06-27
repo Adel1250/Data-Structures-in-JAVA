@@ -7,7 +7,8 @@ public class Main {
         doubleLinkedList.insertLast(3);
         doubleLinkedList.insertAfter(2, 5);
         doubleLinkedList.insertBefore(1, 7);
-        doubleLinkedList.deleteDoublyLinkedListNode(0);
+        doubleLinkedList.printLinkedList();
+        doubleLinkedList.deleteDoublyLinkedListNode(3);
         doubleLinkedList.printLinkedList();
         doubleLinkedList.printLinkedListReverse();
 
