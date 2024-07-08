@@ -28,4 +28,13 @@ public class TreeNode<T> {
     public void setRight(TreeNode<T> right) {
         this.right = right;
     }
+
+    @Override
+    public String toString() {
+        return "TreeNode{" +
+                "data=" + data +
+                ", left=" + left +
+                ", right=" + right +
+                '}';
+    }
 }
