@@ -1,19 +1,4 @@
-public class Result<T> {
-    private final TreeNode<T> parent;
-    private final TreeNode<T> targetNode;
-
-    public Result(TreeNode<T> parent, TreeNode<T> targetNode) {
-        this.parent = parent;
-        this.targetNode = targetNode;
-    }
-
-    public TreeNode<T> getParent() {
-        return parent;
-    }
-
-    public TreeNode<T> getTargetNode() {
-        return targetNode;
-    }
+public record Result<T>(TreeNode<T> parent, TreeNode<T> targetNode) {
 
     @Override
     public String toString() {

@@ -157,14 +157,14 @@ public class BinaryTree<T> {
         if (result == null) {
             return false;
         }
-        TreeNode<T> parent = result.getParent();
-        TreeNode<T> targetNode = result.getTargetNode();
+        TreeNode<T> parent = result.parent();
+        TreeNode<T> targetNode = result.targetNode();
         if (parent == null) {
             root = null;
         } else {
             Result<T> lastNodeResult = findLast();
-            TreeNode<T> lastNode = lastNodeResult.getTargetNode();
-            TreeNode<T> lastNodeParent = lastNodeResult.getParent();
+            TreeNode<T> lastNode = lastNodeResult.targetNode();
+            TreeNode<T> lastNodeParent = lastNodeResult.parent();
             TreeNode<T> targetNodeLeft = targetNode.getLeft();
             TreeNode<T> targetNodeRight = targetNode.getRight();
 
