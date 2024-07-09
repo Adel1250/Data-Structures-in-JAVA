@@ -188,4 +188,28 @@ public class BinarySearchTree<T extends Comparable<T>> {
             parent.setRight(null);
         }
     }
+
+    public void balance() {
+        LinkedList<T> treeNodesData = new LinkedList<>();
+        inOrderToList(root, treeNodesData);
+        root = recursiveBalance(0, treeNodesData.getLinkedListLength() - 1, treeNodesData);
+    }
+
+    private TreeNode<T> recursiveBalance(int left, int right, LinkedList<T> treeNodesData) {
+        if (left > right)
+            return null;
+        int mid = (left + right) / 2;
+        TreeNode<T> newNode = new TreeNode<>(treeNodesData.findNodeData(mid));
+        newNode.setLeft(recursiveBalance(left, mid - 1, treeNodesData));
+        newNode.setRight(recursiveBalance(mid + 1, right, treeNodesData));
+        return newNode;
+    }
+
+    private void inOrderToList(TreeNode<T> treeNode, LinkedList<T> treeNodesData) {
+        if (treeNode == null)
+            return;
+        inOrderToList(treeNode.getLeft(), treeNodesData);
+        treeNodesData.insertLast(treeNode.getData());
+        inOrderToList(treeNode.getRight(), treeNodesData);
+    }
 }

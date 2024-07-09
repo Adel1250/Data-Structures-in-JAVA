@@ -55,4 +55,22 @@ public class LinkedList<T> {
     public LinkedListNode<T> getHead() {
         return head;
     }
+
+    public T findNodeData(int index) {
+        if (this.head == null) {
+            return null;
+        }
+        if (index >= linkedListLength) {
+            return null;
+        }
+        LinkedListNode<T> temp = this.head;
+        for (int i = 0; i < index; i++) {
+            temp = temp.getNext();
+        }
+        return temp.getData();
+    }
+
+    public int getLinkedListLength() {
+        return linkedListLength;
+    }
 }
